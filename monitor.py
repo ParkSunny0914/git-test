@@ -9,7 +9,7 @@ STATE=ROOT/"state/seen.json"
 S=requests.Session(); S.headers.update({"User-Agent":"MW4-Discord-Alert/1.0"})
 TIMEOUT=20
 
-def clean(s): return re.sub(r"\\s+"," ",s or "").strip()
+def clean(s): return re.sub(r"\s+"," ",s or "").strip()
 def relevant(s): return any(w in s.casefold() for w in [x.casefold() for x in C["keywords"]])
 def entry(source,kind,title,body,url,date=""):
     body=clean(body)
